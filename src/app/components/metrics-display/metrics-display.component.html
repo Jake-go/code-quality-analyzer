@@ -1,0 +1,33 @@
+<div class="mt-6 p-4 bg-gray-50 rounded-lg" *ngIf="metrics">
+    <h2 class="text-xl font-bold mb-4">{{ metrics.repoName }} Analysis</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h3 class="font-semibold mb-2">Activity Metrics</h3>
+        <div class="space-y-2">
+          <p>Total Commits: {{ metrics.totalCommits }}</p>
+          <p>Contributors: {{ metrics.contributors }}</p>
+          <p>Open Issues: {{ metrics.issuesCount }}</p>
+          <p>Commit Frequency: {{ metrics.commitFrequency.toFixed(2) }}/day</p>
+        </div>
+      </div>
+      
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h3 class="font-semibold mb-2">Code Metrics</h3>
+        <div class="space-y-2">
+          <p>Code Churn: {{ metrics.codeChurn }}</p>
+          <p>Last Activity: {{ metrics.lastActivityDate | date }}</p>
+          <p>Pull Requests: {{ metrics.pullRequestsCount }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-white p-4 rounded-lg shadow h-[400px]">
+        <canvas #languagesChart></canvas>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow h-[400px]">
+        <canvas #activityChart></canvas>
+      </div>
+    </div>
+  </div>
